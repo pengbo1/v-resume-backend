@@ -54,6 +54,7 @@ public class ConfigController extends BaseController {
         ConfigDO config = configService.selectById(id);
         model.addAttribute("config", config);
         return "common/config/edit";
+
     }
 
     /**

@@ -1,5 +1,5 @@
-FROM java
-MAINTAINER "Aron"<izenglong@163.com>
+FROM java:8
+MAINTAINER pb
 ADD ifast-1.0.0.jar app.jar
 EXPOSE 8088
-CMD java -jar app.jar --spring.profiles.active=prod
+CMD java -jar app.jar --spring.profiles.active=dev

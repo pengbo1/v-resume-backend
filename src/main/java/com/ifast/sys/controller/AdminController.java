@@ -9,8 +9,6 @@ import com.ifast.oss.domain.FileDO;
 import com.ifast.oss.service.FileService;
 import com.ifast.sys.domain.MenuDO;
 import com.ifast.sys.service.MenuService;
-import com.ifast.wxmp.domain.MpConfigDO;
-import com.ifast.wxmp.service.MpConfigService;
 import lombok.AllArgsConstructor;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -35,7 +33,6 @@ public class AdminController extends BaseController {
 
     private final MenuService menuService;
     private final FileService fileService;
-    private final MpConfigService mpConfigService;
 
     @GetMapping({ "/", "" })
     String welcome(Model model) {
@@ -50,8 +47,6 @@ public class AdminController extends BaseController {
         model.addAttribute("username", getUser().getUsername());
         FileDO fileDO = fileService.selectById(getUser().getPicId());
         model.addAttribute("picUrl", fileDO == null ? "/img/photo_s.jpg" : fileDO.getUrl());
-        List<MpConfigDO> mpList = mpConfigService.selectList(null);
-        model.addAttribute("mpList", mpList);
         return "index_v1";
     }
 

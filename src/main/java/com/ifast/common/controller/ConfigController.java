@@ -69,6 +69,7 @@ public class ConfigController extends BaseController {
             return success();
         }
         return Result.fail();
+
     }
 
     /**
